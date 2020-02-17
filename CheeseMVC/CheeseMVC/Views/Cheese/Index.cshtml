@@ -8,13 +8,15 @@
 {
     <p> No cheeses yet! </p>
 }
+else
+{
+    <p> <a asp-controller="Cheese" asp-action="Remove">Remove Cheese</a></p>
+}
 
 <ul>
     @foreach (KeyValuePair<string, string> cheese in ViewBag.Cheeses)
     {
-        <li> @cheese.Key - @cheese.Value </li>
+        <li>@cheese.Key - @cheese.Value </li>
     }
 </ul>
-
-
 
