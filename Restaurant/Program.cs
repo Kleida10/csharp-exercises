@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Restaurant
 {
     class Menu
     {
-        public class Category
+        public enum Category
         {
-            public string appetizer;
-            public string lunch;
-            public string dinner;
-            public string drinks;
+            appetizer,
+            lunch,
+            dinner,
+            drinks,
         }
 
         public class MenuItems
@@ -22,11 +24,18 @@ namespace Restaurant
                 get { return price; }
                 internal set { price = value; }
             }
-            public bool IsNew { get; set; }
-            public class AddedOnDate
+            public List<MenuItems> MenuItem = new List<MenuItems>();
+
+            public DateTime AddedOnDate { get; set; }
+            public bool IsNew
+
             {
-                readonly DateTime addedOnDate = DateTime.Parse("/*stringDate*/", System.Globalization.CultureInfo.InvariantCulture);
+                get
+                {
+                    return AddedOnDate.Date >= DateTime.Now.Date.AddDays(-90);
+                }
             }
+
         }
     }
 }
