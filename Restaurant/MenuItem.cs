@@ -6,21 +6,13 @@ public class MenuItem
    
     public string Description { get; set; }
    
-    public double Price
-    {
-        get { return price; }
-        internal set { price = value; }
-    }
-
-    public DateTime AddedOnDate 
-    {
-        get { return DateTime.Now.Date; }
-    }
+    public double Price { get; set; }
+  
+    public DateTime AddedOnDate { get; set; }
+   
     
-    public int Id 
-    { 
-        get { return Id;  }
-    }
+    public int Id { get; set; }
+   
 
     public bool IsNew
     {
@@ -30,13 +22,14 @@ public class MenuItem
         }
     }
 
-    public enum Category
+    public enum CategoryType
     {
         Appetizer,
         Lunch,
         Dinner,
         Drinks,
     }
+    public CategoryType Category { get; set; }
 
     public MenuItem(int id, DateTime addedOnDate)
     {
@@ -57,15 +50,15 @@ public class MenuItem
             return false;
         }
        
-        MenuItem item = obj as MenuItem;
-        return Name == obj.Name;
+       MenuItem item = obj as MenuItem;
+        return Name == item.Name;
     }
 
     public override int GetHashCode()
     {
-        return Name;
+        return Id;
     }
 }
-    
+
 
 

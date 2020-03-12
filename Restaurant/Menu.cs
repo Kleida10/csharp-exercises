@@ -1,22 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Menu
 {
-   public DateTime DateCreated
-    {
-        get { return DateTime.Now; }
-    }
+   public DateTime DateCreated { get; set; }
+   
 
-    public DateTime DateUpdated
-    {
-        get { return DateTime.Now; }
-    }
+    public DateTime DateUpdated { get; set; }
+   
 
-    public int Id
-    {
-        get { return Id; }
-    }
-
+    public int Id { get; set; }
+   
 
     public Menu(DateTime dateCreated, DateTime dateUpdated)
     {
@@ -28,21 +22,13 @@ public class Menu
       
     public List<MenuItem> menuItems = new List<MenuItem>();
 
-   public void AddItem(string name, string description, double price, DateTime addedOnDate)
+   public void AddItem(MenuItem item)
     {
-        MenuItem item = new MenuItem();
-
-        item.Name = name;
-        item.Description = description;
-        item.Price = price;
-        item.AddedOnDate = addedOnDate;
-
         menuItems.Add(item);
     }
 
-    public void RemoveItem(string name)
+    public void RemoveItem(MenuItem item)
     {
-        item.Name = name;
         menuItems.Remove(item);
     }
 
@@ -54,36 +40,30 @@ public class Menu
             return false;
 
         }
+        else
+        {
+            return true;
+        }
     }
 
-
-    public void PrintItem (int idNumber)
+    public override string ToString()
     {
-        item.Id = idNumber;
+        return Id.ToString();
+    }
+    public void PrintItem (MenuItem item)
+    {
         Console.WriteLine(item);
     }
 
     public void PrintAll()
     {
-        Console.WriteLine(menuItems);
+        foreach(MenuItem item in menuItems)
+        {
+           Console.WriteLine(item);
+
+        }
     }
     
-   //why do i need again those methods here? ToString(), Equals(), and the GetHashCode()
-    public override string ToString()
-    {
-        return menuItems;//??? 
-    }
-    
-    
-    public override bool Equals()
-    {
-        
-    }
-
-    public override int GetHashCode()
-    {
-
-    }
-
+   
 }
 
