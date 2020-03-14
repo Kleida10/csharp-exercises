@@ -4,15 +4,15 @@ using System.Text;
 
 namespace QuizTime
 {
-    class Questions
+    class Question
     {
-        public string Question { get; set; }
+        public string Questions { get; set; }
         public string Answer { get; set; }
         public string CorrectAnswer { get; set; }
        
-        public Questions (string question, string correctAnswer)
+        public Question (string question, string correctAnswer)
         {
-           Question = question;
+           Questions = question;
            CorrectAnswer = correctAnswer;
         }
        

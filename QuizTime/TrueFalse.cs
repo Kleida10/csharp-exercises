@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuizTime
 {
-    class TrueFalse : Questions
+    class TrueFalse : Question
     {
         public TrueFalse(string question, string correctAnswer) : base(question, correctAnswer) { }
     

@@ -4,10 +4,8 @@ using System.Text;
 
 namespace QuizTime
 {
-    class Checkbox : Questions
+    class Checkbox : Question
     {
-        public Checkbox (string question, string correctAnswer) : base(question, correctAnswer) 
-        {
-        }
+        public Checkbox (string question, string correctAnswer) : base(question, correctAnswer) { }
     }
 }
